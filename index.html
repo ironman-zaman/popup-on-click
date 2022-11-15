@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <style>
+        body{
+            padding:0px;
+            margin:0px;
+            font-family: sans-serif;
+        }
+       .popup{
+        background-color: rgba(0,0,0,.5);
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        position:fixed;
+        top:0px;
+       }
+
+       .popup-inner{
+        max-width: 600px;
+        background-color: #ffffff;
+        text-align: center;
+        margin:0 auto;
+       }
+       .popup-header{
+        padding: 15px;
+        background-color: #0096ff;
+        color: #fff;
+        position: relative;
+       }
+       .popup-footer{
+        padding: 15px;
+        background-color: #0096ff;
+        color: #fff;
+       }
+       .popup-content{
+        padding:40px;
+       }
+       .close{
+        position: absolute;
+        top:10px;
+        right: 10px;
+        font-size: 40px;
+        cursor: pointer;
+       }
+       .popup-btn  button{
+        padding: 10px 30px;
+        background-color: #0096ff;
+        color: #fff;
+        margin:40px;
+       }
+    </style>
+</head>
+<body>
+    <div class="popup-btn">
+        <button id="popupBtn">Click Me</button>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-inner">
+            <div class="popup-header">
+                <h1>Popup Header</h1>
+                <div class="close" id="close">
+                    &times;
+                </div>
+            </div>
+            <div class="popup-content">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellat velit aspernatur iste ut alias aliquid nemo, rerum accusantium officia, magni voluptatibus hic, facere odit suscipit mollitia et. Enim, quas.
+                </p>
+            </div>
+            <div class="popup-footer">
+                <h2>Popup Footer</h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        var btn = document.getElementById("popupBtn");
+        var popup = document.getElementById("popup");
+        var close = document.getElementById("close");
+        btn.addEventListener("click",function(){
+            popup.style.display = "flex";
+        })
+        close.addEventListener("click",function(){
+            popup.style.display = "none";
+        })
+        popup.addEventListener("click",function(e){
+            if (e.target==popup) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
